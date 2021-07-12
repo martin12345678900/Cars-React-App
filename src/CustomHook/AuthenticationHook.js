@@ -11,8 +11,7 @@ function useAuthentication(authenticationHandler) {
 
     const authenticationSubmitHandler = (ev) => {
         ev.preventDefault();
-        const repeatPass = ev.target.repeatPass.value;
-        if (username.inputValue && password.inputValue && (repeatPass ? repeatPass === password.inputValue : true)) {
+        if (username.inputValue && password.inputValue) {
             return authenticationHandler(username.inputValue, password.inputValue)
                 .then(user => {
                     Object.entries(user).forEach(([key, value]) => sessionStorage.setItem(key, value));
