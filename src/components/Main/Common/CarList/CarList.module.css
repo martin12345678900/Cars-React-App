@@ -1,0 +1,48 @@
+.listing {
+    box-sizing: border-box;
+    text-align: left;
+    display: inline-block;
+    padding: 30px 50px;
+    width: 350px;
+    margin: 15px;
+    margin-bottom: 50px;
+    border-radius: 8px;
+    border: 2px solid black;
+}
+
+.brand {
+    height: 2.5em;
+}
+
+.preview {
+    height: 150px;
+    width: 250px;
+    text-align: center;
+}
+
+.img {
+    object-fit: contain;
+    height: 150px;
+    width: 250px;
+}
+
+.data {
+    margin-top: 8px;
+}
+
+.charackteristics {
+    font-size: 20px;
+}
+
+.details {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 10px;
+    width: 100px;
+    margin: 2px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}

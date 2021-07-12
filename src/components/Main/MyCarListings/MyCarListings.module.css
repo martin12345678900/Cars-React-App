@@ -1,0 +1,15 @@
+.mylistings {
+    margin: auto;
+    text-align: center;
+}
+
+.empty {
+    margin: auto;
+    font-size: 30px;
+    text-align: center;
+}
+
+.mytitle {
+    text-align: center;
+    margin-top: 10px;
+}

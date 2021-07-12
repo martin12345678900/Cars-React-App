@@ -1,0 +1,15 @@
+.searchListings {
+    margin: auto;
+    text-align: center;
+}
+
+.noCars {
+    margin: auto;
+    font-size: 30px;
+    text-align: center;
+}
+
+.searchTitle {
+    text-align: center;
+    margin-top: 10px;
+}

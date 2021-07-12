@@ -1,0 +1,40 @@
+.searchInput {
+    display: block;
+    width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 5%;
+    font-size: 20px;
+    margin-top: 25px;
+  }
+  
+.searchCars {
+    width: 100vw;
+    position: relative;
+  
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.container {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+.buttonList {
+    cursor: pointer;
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    margin: auto;
+    margin-top: 30px;
+    padding: 11px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
