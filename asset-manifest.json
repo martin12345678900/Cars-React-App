@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Cars-React-App/static/css/main.e9e4b6ea.chunk.css",
+    "main.js": "/Cars-React-App/static/js/main.684dafcd.chunk.js",
+    "main.js.map": "/Cars-React-App/static/js/main.684dafcd.chunk.js.map",
+    "runtime-main.js": "/Cars-React-App/static/js/runtime-main.2ca458fe.js",
+    "runtime-main.js.map": "/Cars-React-App/static/js/runtime-main.2ca458fe.js.map",
+    "static/js/2.b37b0954.chunk.js": "/Cars-React-App/static/js/2.b37b0954.chunk.js",
+    "static/js/2.b37b0954.chunk.js.map": "/Cars-React-App/static/js/2.b37b0954.chunk.js.map",
+    "static/js/3.ed75b60a.chunk.js": "/Cars-React-App/static/js/3.ed75b60a.chunk.js",
+    "static/js/3.ed75b60a.chunk.js.map": "/Cars-React-App/static/js/3.ed75b60a.chunk.js.map",
+    "index.html": "/Cars-React-App/index.html",
+    "static/css/main.e9e4b6ea.chunk.css.map": "/Cars-React-App/static/css/main.e9e4b6ea.chunk.css.map",
+    "static/js/2.b37b0954.chunk.js.LICENSE.txt": "/Cars-React-App/static/js/2.b37b0954.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2ca458fe.js",
+    "static/js/2.b37b0954.chunk.js",
+    "static/css/main.e9e4b6ea.chunk.css",
+    "static/js/main.684dafcd.chunk.js"
+  ]
+}
