@@ -26,7 +26,7 @@ function useAuthentication(authenticationHandler) {
     }
 
     const validate = (event, setState, errorMsg) => {
-        if (/^[A-Za-z0-9]{5,15}$/.test(event.target.value) === false) {
+        if (/[A-Za-z0-9@.]{5,15}/.test(event.target.value) === false) {
             setState({ errorMessage: errorMsg})
         } else {
             setState({ errorMessage: '', inputValue: event.target.value });
