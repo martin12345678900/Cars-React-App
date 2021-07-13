@@ -19,7 +19,7 @@ function useAuthentication(authenticationHandler) {
                     setUserInfo({
                         accessToken: user.accessToken,
                         userId: user._id,
-                        username: user.username
+                        email: user.email
                     })
                     history.push('/listings');
                 })
