@@ -1,11 +1,11 @@
 import { get, post, put, del } from './my-api.js';
 
-async function register(username, password) {
-    return await post('/users/register', { username, password });
+async function register(email, password) {
+    return await post('/users/register', { email, password });
 }
 
-async function login(username, password) {
-    return await post('/users/login', { username, password });
+async function login(email, password) {
+    return await post('/users/login', { email, password });
 }
 
 async function getAllListings() {
