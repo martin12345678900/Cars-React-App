@@ -19,9 +19,9 @@ function Register({
                 <h1>Register</h1>
                 <p>Please fill in this form to create an account.</p>
 
-                <p>Username</p>
+                <p>Email</p>
                 {username.errorMessage && username.errorMessage !== '' ? <Error message={username.errorMessage} /> : null}
-                <input className={style.text} type="text" placeholder="Enter Username" name="username" onBlur={validateInput} required />
+                <input className={style.text} type="text" placeholder="Enter Email" name="username" onBlur={validateInput} required />
 
                 <p>Password</p>
                 {password.errorMessage && password.errorMessage !== '' ? <Error message={password.errorMessage} /> : null}
