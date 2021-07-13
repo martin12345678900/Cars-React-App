@@ -35,7 +35,7 @@ function useAuthentication(authenticationHandler) {
 
     const validateInput = (ev) => {
         let validateInputs = {
-            username: () => {
+            email: () => {
                 validate(ev, setEmail, 'Username must include only letters and must be between 5 and 15 symbols!');
             },
             password: () => {
