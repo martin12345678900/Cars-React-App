@@ -22,7 +22,7 @@ function App() {
     const [userInfo, setUserInfo] = useState(() => {
         const accessToken = sessionStorage.getItem('accessToken');
         const userId = sessionStorage.getItem('_id');
-        const username = sessionStorage.getItem('username');
+        const email = sessionStorage.getItem('email');
 
         if (!accessToken) {
             return { };
@@ -31,7 +31,7 @@ function App() {
         return {
             accessToken,
             userId,
-            username
+            email
         }
     });
     return (
