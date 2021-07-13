@@ -16,9 +16,9 @@ function Login({
                 <h1>Login</h1>
                 <p>Please enter your credentials.</p>
 
-                <p>Email</p>
+                <p>Username</p>
                 { username.errorMessage && username.errorMessage !== '' ? <Error message={username.errorMessage} /> : null }
-                <input className={style.text} placeholder="Enter Email" name="username" type="text" onBlur={validateInput} />
+                <input className={style.text} placeholder="Enter Username" name="username" type="text" onBlur={validateInput} />
 
                 <p>Password</p>
                 { password.errorMessage && password.errorMessage !== '' ? <Error message={password.errorMessage} /> : null }
