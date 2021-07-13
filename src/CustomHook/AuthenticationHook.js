@@ -14,7 +14,6 @@ function useAuthentication(authenticationHandler) {
         if (email.inputValue && password.inputValue) {
             return authenticationHandler(email.inputValue, password.inputValue)
                 .then(user => {
-                    console.log(user);
                     Object.entries(user).forEach(([key, value]) => sessionStorage.setItem(key, value));
                     setUserInfo({
                         accessToken: user.accessToken,
