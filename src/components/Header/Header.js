@@ -27,7 +27,7 @@ function Header() {
                             <NavLink activeStyle={{ backgroundColor: 'lightgreen' }} className={style.links} to="/auth/register">Register</NavLink>
                         </div>
                         : <div className={style.profile}>
-                            <strong className={style.links}><span id="welcome-message">{`Welcome, ${userInfo.username}`}</span></strong>
+                            <strong className={style.links}><span id="welcome-message">{`Welcome, ${userInfo.email}`}</span></strong>
                             <NavLink activeStyle={{ backgroundColor: 'lightgreen' }} className={style.links} to="/cars/my-listings">My Listings</NavLink>
                             <Link className={style.links} to="/create">Create Listing</Link>
                             <Link className={style.links} onClick={logoutUser} id="logoutButton">Logout</Link>
