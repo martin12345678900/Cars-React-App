@@ -4,15 +4,15 @@ import { UserCtx } from '../Context/UserContext';
 
 function useAuthentication(authenticationHandler) {
     const { setUserInfo } = useContext(UserCtx);
-    const [username, setUsername] = useState({ });
+    const [email, setEmail] = useState({ });
     const [password, setPassword] = useState({ });
     
     const history = useHistory();
 
     const authenticationSubmitHandler = (ev) => {
         ev.preventDefault();
-        if (username.inputValue && password.inputValue) {
-            return authenticationHandler(username.inputValue, password.inputValue)
+        if (email.inputValue && password.inputValue) {
+            return authenticationHandler(email.inputValue, password.inputValue)
                 .then(user => {
                     Object.entries(user).forEach(([key, value]) => sessionStorage.setItem(key, value));
                     setUserInfo({
@@ -36,7 +36,7 @@ function useAuthentication(authenticationHandler) {
     const validateInput = (ev) => {
         let validateInputs = {
             username: () => {
-                validate(ev, setUsername, 'Username must include only letters and must be between 5 and 15 symbols!');
+                validate(ev, setEmail, 'Username must include only letters and must be between 5 and 15 symbols!');
             },
             password: () => {
                 validate(ev, setPassword, 'Password must include letters and numbers and must be between 5 and 15 symbols!')
@@ -49,7 +49,7 @@ function useAuthentication(authenticationHandler) {
     return [
         authenticationSubmitHandler,
         validateInput,
-        username,
+        email,
         password
     ]
 }
