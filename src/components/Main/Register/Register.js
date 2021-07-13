@@ -11,7 +11,7 @@ import useAuthentication from '../../../CustomHook/AuthenticationHook';
 function Register({
     history,
 }) {
-    const [registerSubmitHandler, validateInput, username, password] = useAuthentication(register);
+    const [registerSubmitHandler, validateInput, email, password] = useAuthentication(register);
     
     return (
         <div className={style.container}>
@@ -20,8 +20,8 @@ function Register({
                 <p>Please fill in this form to create an account.</p>
 
                 <p>Email</p>
-                {username.errorMessage && username.errorMessage !== '' ? <Error message={username.errorMessage} /> : null}
-                <input className={style.text} type="email" placeholder="Enter email" name="username" onBlur={validateInput} required />
+                {email.errorMessage && email.errorMessage !== '' ? <Error message={email.errorMessage} /> : null}
+                <input className={style.text} type="email" placeholder="Enter Email" name="email" onBlur={validateInput} required />
 
                 <p>Password</p>
                 {password.errorMessage && password.errorMessage !== '' ? <Error message={password.errorMessage} /> : null}
