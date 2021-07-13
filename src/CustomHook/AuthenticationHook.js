@@ -12,7 +12,6 @@ function useAuthentication(authenticationHandler) {
     const authenticationSubmitHandler = (ev) => {
         ev.preventDefault();
         if (username.inputValue && password.inputValue) {
-            console.log(username.inputValue);
             return authenticationHandler(username.inputValue, password.inputValue)
                 .then(user => {
                     Object.entries(user).forEach(([key, value]) => sessionStorage.setItem(key, value));
