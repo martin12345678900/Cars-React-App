@@ -18,7 +18,7 @@ function Login({
 
                 <p>Email</p>
                 { username.errorMessage && username.errorMessage !== '' ? <Error message={username.errorMessage} /> : null }
-                <input className={style.text} placeholder="Enter Email" name="username" type="email" onBlur={validateInput} />
+                <input className={style.text} placeholder="Enter Email" name="email" type="email" onBlur={validateInput} />
 
                 <p>Password</p>
                 { password.errorMessage && password.errorMessage !== '' ? <Error message={password.errorMessage} /> : null }
