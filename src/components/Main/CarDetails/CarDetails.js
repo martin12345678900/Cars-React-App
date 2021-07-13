@@ -17,19 +17,12 @@ function CarDetails({
     const { userInfo } = useContext(UserCtx);
     const carId = match.params.carId;
 
-    const [carDetails, isCar] = useFetch(getCarById, {} , carId);
+    const [carDetails, isCar] = useFetch(getCarById, {}, carId);
 
     const deleteCurrentCar = () => {
         if (window.confirm('Are u sure u want to delete this recored ?!')) {
-            try {
-                if (userInfo.userId !== carDetails._ownerId) {
-                    throw new Error('You are not able to delete records!');
-                }
-                return carListingDelete(carId)
-                    .then(history.push('/listings'));
-            } catch (err) {
-                alert(err.message);
-            }
+            return carListingDelete(carId)
+                .then(history.push('/listings'));
         }
     };
 
@@ -54,10 +47,14 @@ function CarDetails({
                                 {carDetails.description}
                             </p>
 
-                            <div className={style.listingsbuttons}>
-                                <Link to={`/cars/edit/${carId}`} className={style.buttonlist}>Edit</Link>
-                                <button onClick={deleteCurrentCar} className={style.buttonlist}>Delete</button>
-                            </div>
+                            {
+                                userInfo.userId === carDetails._ownerId
+                                    ? <div className={style.listingsbuttons}>
+                                        <Link to={`/cars/edit/${carId}`} className={style.buttonlist}>Edit</Link>
+                                        <button onClick={deleteCurrentCar} className={style.buttonlist}>Delete</button>
+                                    </div>
+                                    : null
+                            }
                         </div>
                     </section>
             }
