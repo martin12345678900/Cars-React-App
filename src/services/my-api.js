@@ -33,7 +33,7 @@ function setOptions(method, data = undefined) {
     return options;
 }
 
-const host = 'http://localhost:3030';
+const host = 'https://cars-react-app-server.herokuapp.com';
 
 async function get(url) {
     return await request(host + url, setOptions('get'));
