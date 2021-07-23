@@ -8,7 +8,7 @@ import useAuthentication from '../../../CustomHook/AuthenticationHook';
 function Login({
     history
 }) {
-    const [loginSubmitHandler, validateInput, email, password] = useAuthentication(login);
+    const [loginSubmitHandler, validateInput, validation] = useAuthentication(login);
     
     return (
         <div className={style.container}>
@@ -17,11 +17,11 @@ function Login({
                 <p>Please enter your credentials.</p>
 
                 <p>Email</p>
-                { email.errorMessage && email.errorMessage !== '' ? <Error message={email.errorMessage} /> : null }
+                { validation.invalidEmailMsg && validation.invalidEmailMsg !== '' ? <Error message={validation.invalidEmailMsg} /> : null }
                 <input className={style.text} placeholder="Enter Email" name="email" type="email" onBlur={validateInput} />
 
                 <p>Password</p>
-                { password.errorMessage && password.errorMessage !== '' ? <Error message={password.errorMessage} /> : null }
+                { validation.invalidPasswordMsg && validation.invalidPasswordMsg !== '' ? <Error message={validation.invalidPasswordMsg} /> : null }
                 <input className={style.password} type="password" placeholder="Enter Password" name="password" onBlur={validateInput} />
                 <input type="submit" className={style.loginbtn} value="Login" />
             </form>
