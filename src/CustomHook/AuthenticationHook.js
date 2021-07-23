@@ -1,56 +1,71 @@
-import { useContext, useState } from 'react';
+import { useContext, useReducer } from 'react';
 import { useHistory } from 'react-router-dom';
 import { UserCtx } from '../Context/UserContext';
 
+const INCORRECT_TYPES = {
+    'INVALID-EMAIL': 'invalid-email',
+    'VALID-EMAIL': 'valid-email',
+    'INVALID-PASSWORD': 'invalid-password',
+    'VALID-PASSWORD': 'valid-password'
+}
+
+function reducerFunc(previousState, action) {
+    switch (action.type) {
+        case INCORRECT_TYPES['INVALID-EMAIL']:
+            return { ...previousState, invalidEmailMsg: 'Incorrect email!' };
+        case INCORRECT_TYPES['VALID-EMAIL']:
+            return { ...previousState, email: action.value, invalidEmailMsg: '' };
+        case INCORRECT_TYPES['INVALID-PASSWORD']:
+            return { ...previousState, invalidPasswordMsg: 'Incorrect password!' };
+        case INCORRECT_TYPES['VALID-PASSWORD']:
+            return { ...previousState, password: action.value, invalidPasswordMsg: '' };
+        default:
+            return previousState;
+    }
+}
+
 function useAuthentication(authenticationHandler) {
     const { setUserInfo } = useContext(UserCtx);
-    const [email, setEmail] = useState({ });
-    const [password, setPassword] = useState({ });
-    
+    const [validationState, dispach] = useReducer(reducerFunc, {});
+
     const history = useHistory();
 
     const authenticationSubmitHandler = (ev) => {
         ev.preventDefault();
-        if (email.inputValue && password.inputValue) {
-            return authenticationHandler(email.inputValue, password.inputValue)
+        if (validationState.email && validationState.password) {
+            return authenticationHandler(validationState.email, validationState.password)
                 .then(user => {
                     Object.entries(user).forEach(([key, value]) => sessionStorage.setItem(key, value));
                     setUserInfo({
                         accessToken: user.accessToken,
                         userId: user._id,
-                        email: user.email
+                        username: user.username
                     })
                     history.push('/listings');
                 })
         }
     }
 
-    const validate = (event, setState, errorMsg) => {
-        if (/[A-Za-z0-9@.]{5,15}/.test(event.target.value) === false) {
-            setState({ errorMessage: errorMsg})
+    const validate = (event, regex, prop) => {
+        if (regex.test(event.target.value) === false) {
+            dispach({ type: INCORRECT_TYPES[`INVALID-${prop}`]});
         } else {
-            setState({ errorMessage: '', inputValue: event.target.value });
+            dispach({ type: INCORRECT_TYPES[`VALID-${prop}`], value: event.target.value });
         }
     }
 
-    const validateInput = (ev) => {
-        let validateInputs = {
-            email: () => {
-                validate(ev, setEmail, 'Username must include only letters and must be between 5 and 15 symbols!');
-            },
-            password: () => {
-                validate(ev, setPassword, 'Password must include letters and numbers and must be between 5 and 15 symbols!')
-            },
+    const validateInput = (event) => {
+        const validationByName = {
+            email: () => validate(event, /\S+@\S+\.\S+/, 'EMAIL'),
+            password: () => validate(event, /[A-Za-z0-9]/, 'PASSWORD')
         }
 
-        return validateInputs[ev.target.name]();
-    }
-
+        validationByName[event.target.name]();
+    };
     return [
         authenticationSubmitHandler,
         validateInput,
-        email,
-        password
+        validationState
     ]
 }
 
